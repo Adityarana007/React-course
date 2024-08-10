@@ -15,4 +15,20 @@
 - Error Handling
 - Https
 - Tree Shaking - remove unused code for you
-- different dev and prod bundles
+-  different dev and prod bundles
+
+
+/**
+ * Header
+ *  - Logo
+ *  - Nav Items
+ * Body
+ *  - Search
+ *  - RestaurantContainer
+ *      - Restaurant Card
+ * Footer
+ *  - Copy Right
+ *  - Links
+ *  - Address
+ *  - Contact
+ */

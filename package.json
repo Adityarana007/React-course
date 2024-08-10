@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "this is react course",
   "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
     "test": "jest"
   },
   "repository": {
