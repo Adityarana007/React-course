@@ -15,7 +15,7 @@
 - Error Handling
 - Https
 - Tree Shaking - remove unused code for you
-- different dev and prod bundles
+-  different dev and prod bundles
 
 
 /**
