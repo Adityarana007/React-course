@@ -1,3 +1,93 @@
-#heading {
-    color: red
+:root{
+    --fontFamily: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;
+}
+.logo{
+    width: 100px;
+}
+.nav-items > ul {
+    display: flex;
+    list-style-type: none;
+    padding-right: 20px;
+}
+.nav-items > ul > li {
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: coral;
+    font-family: var(--fontFamily);
+
+}
+
+.search{
+    padding: 10px;
+}
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* justify-content: space-between; */
+}
+.res-card {
+    /* height: 330px; */
+    width: 240px;
+   margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+.res-card:hover{
+    border: 1px solid rgb(229, 225, 225);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-img {
+    height: 173px;
+    width: 100%
+}
+.card-description{
+    font-size: 12px;
+    color: rgba(2, 6, 12, 0.6);
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    font-family: var(--fontFamily);
+
+}
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+.rating-text{
+    margin-left: 10px;
+    font-family: var(--fontFamily);
+
+}
+.discount-text{
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    font-family: var(--fontFamily);
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+    /* letter-spacing: -0.5px; */
+    color: rgba(255, 255, 255, 0.92);
+}
+.res-name{
+    font-family: var(--fontFamily);
+
+}
+.cost{
+    font-size: 16px;
+    color: brown;
+    font-weight: 600;
+    font-family: var(--fontFamily);
+
 }
