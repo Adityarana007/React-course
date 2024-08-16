@@ -155,3 +155,112 @@
     width: 150px;
     color: white;
 }
+.button-filter {
+    margin: 10px;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: rgb(205, 205, 205);
+
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cards-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-cards{
+    width: 240px;
+    height: 260px;
+    background-color: rgb(205, 205, 205);
+    margin: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+.line-shimmer{
+    display: flex;
+    background-color: rgb(169, 168, 168);
+    position: absolute;
+    width: 60%;
+    bottom: 50px;
+    height: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+.line-shimmer2{
+    display: flex;
+    background-color: rgb(169, 168, 168);
+    position: absolute;
+    width: 80%;
+    bottom: 15px;
+    height: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+
+
+}
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.card-img{
+    height: 150px;
+    /* margin: 20px; */
+    /* width: 200px; */
+    background-color: rgb(169, 168, 168);
+    /* padding: 10px; */
+}
+.login-btn{
+    padding: 0 20px;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: var(--fontFamily);
+    font-weight: 600;
+    margin-left: 10px;
+
+}
+.login-btn:hover{
+    background-color: #ffa700;
+    color: white;
+}
+.filter-search-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search{
+    margin-right: 20px;
+    width: 340px;
+}
+.search-box{
+    background-color: #fff;
+    border: 0px solid;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 75%;
+}
+.search-box:focus{
+    outline: none;
+}
+.search-btn{
+    border: none;
+    padding: 10px;
+    background-color: rgb(183, 181, 181);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.search-btn:hover{
+    background-color: #ffa700;
+    color: #fff
+
+}
