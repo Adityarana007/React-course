@@ -18,26 +18,7 @@
 -  different dev and prod bundles
 
 
-/**
- * Header
- *  - Logo
- *  - Nav Items
- * Body
- *  - Search
- *  - RestaurantContainer
- *      - Restaurant Card
- * Footer
- *  - Copy Right
- *  - Links
- *  - Address
- *  - Contact
- */
-
-
-
- import React from "react";
-import ReactDOM from "react-dom/client";
-
+# Food App Structure
 /**
  * Header
  *  - Logo
