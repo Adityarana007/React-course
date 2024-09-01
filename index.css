@@ -27,6 +27,11 @@
     font-family: var(--fontFamily);
 
 }
+.nav-items > ul > li a {
+    text-decoration: none;
+    color: inherit;
+
+}
 .nav-items > ul > li:hover {
     cursor: pointer;
     color: coral;
@@ -263,4 +268,125 @@
     background-color: #ffa700;
     color: #fff
 
+}
+.nav-items > ul > li > Link {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+}
+
+.menu{
+    background-color: rgb(245, 240, 240);
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+
+}
+.rest-inner-container{
+    background-color: white;
+    width: 800px;
+    height: 160px;
+    border-radius: 20px;
+    border: 1px solid rgb(231, 223, 223);
+    margin-top: 20px;
+}
+.rest-inner-container > ul > li {
+    list-style-type: none;
+}
+.restaurant-detail-name{
+    font-size: 24px;
+    font-family: var(--fontFamily);
+    margin-top: 20px;
+}
+.rating-detail-container{
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    display: flex;
+}
+.rating-detail-text{
+    font-family: var(--fontFamily);
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: 600;
+
+}   
+.cuisines-detail-text{
+    font-family: var(--fontFamily);
+    text-decoration-line: underline;
+    color:#ffa700;
+    display: inline;
+}
+.cuisines-detail-text:hover{
+    cursor: pointer;
+}
+.deliverytime-detail-text{
+    color: black;
+    font-family: var(--fontFamily);
+    font-size: 16px;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-weight: 600;
+}
+.outlet-area-div{
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 20px;
+
+}
+.outlet-detaail-text{
+    color: black;
+    font-family: var(--fontFamily);
+    font-size: 16px;
+}
+.areaName-detail-text{
+    color: rgb(179, 179, 179);
+    font-family: var(--fontFamily);
+    font-size: 16px;
+    padding-left: 10px;
+}
+.recommended-div{
+    margin-top: 40px;
+    width: '100%';
+    /* background-color: blue; */
+}
+.recommended-text{
+    color: black;
+    font-family: var(--fontFamily);
+    font-size: 20px;
+    padding-left: 10px; 
+}
+.rupee-text{
+    color: black;
+    font-family: var(--fontFamily);
+    font-size: 16px;
+    padding-left: 10px; 
+}
+.info-container{
+    margin-bottom: 30px ;
+    display: flex;
+    align-items: center;
+}
+.info-container > div > li {
+    list-style-type: none;
+    color: black;
+    font-size: 18px;
+    font-family: var(--fontFamily);
+    /* margin-top: 40px; */
+}
+.description-text{
+    color: #02060C99;
+    font-family: var(--fontFamily);
+    font-size: 16px;
+    padding-left: 10px; 
+    font-weight: 300;
+    width: 600px;
+}
+.res-container a {
+    text-decoration: none;
+    color: inherit;
+}
+.menu-img{
+    height: 100px;
+    width: 100px;
 }
