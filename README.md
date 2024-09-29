@@ -40,3 +40,20 @@
 # 2 types of routing
 - Client side routing
 - Server side routing
+
+
+# Component Life Cycle Tree Structure
+
+* --- MOUNTING PHASE ---
+    - Constructor (dummy)
+    - Render (dummy)
+    - <HTML Dummy>
+    - ComponentDid mount
+    - <API Call>
+    - <this.setState> -> state variable is updated
+
+* --- UPDATING PHASE ---
+    - render (API data)
+    - <HTML (new API Data)>
+    -  ComponentDidUpdate
+    

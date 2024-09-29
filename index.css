@@ -394,3 +394,8 @@
     padding: 10px;
     border: 1px solid black;
 } 
+.imgGit{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}

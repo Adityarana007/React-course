@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
   }, []);
   const fetchMenu = async () => {
     const data = await fetch(
-      `https://corsproxy-la3g.onrender.com/full/?url=https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=29.981448338218446&lng=76.86849609017372&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
+      `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=29.981448338218446&lng=76.86849609017372&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
     );
     const respJson = await data.json();
     console.log(

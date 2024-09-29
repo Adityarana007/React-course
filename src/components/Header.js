@@ -4,11 +4,9 @@ import {Link} from 'react-router-dom'
 const Header = () => {
   const [btnText, setBtnText]= useState('Login');
 
-  console.log('Header component renders')
-
   // useEffect
   useEffect(() => {
-    console.log('Header useEffect called')
+    // console.log('Header useEffect called')
   },[btnText])
   const onLoginClick = () =>{
     btnText === 'Login' ? setBtnText('Logout') : setBtnText('Login');
