@@ -4,35 +4,17 @@ import Shimmer from "./Shimmer";
 import RatingComponentSvg from "../common/RatingComponentSvg";
 import { useParams } from "react-router-dom";
 import { IMG_BASE_URL } from "../utils/constants";
+import { GET_MENU } from "../services/apiUrls";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-  const [menuList, setMenuList] = useState(null);
   const { resId } = useParams();
-  console.log("resId", resId);
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-  const fetchMenu = async () => {
-    const data = await fetch(
-      `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=29.981448338218446&lng=76.86849609017372&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
-    );
-    const respJson = await data.json();
-    console.log(
-      "menuResponse",
-      respJson.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-        ?.card?.card?.itemCards
-    );
-    setMenuList(
-      respJson.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-        ?.card?.card?.itemCards
-    );
-    setResInfo(respJson.data?.cards[2]?.card?.card?.info);
-  };
+  const restaurantInfo = useRestaurantMenu(resId);
+  const resInfo = restaurantInfo?.data?.cards[2]?.card?.card?.info;
+  const menuList = restaurantInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+  ?.card?.card?.itemCards;
 
-
-
-  return resInfo === null ? (
+  return restaurantInfo === null ? (
     <Shimmer />
   ) : (
     <div>

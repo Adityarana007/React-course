@@ -1,0 +1,2 @@
+export const GET_RESTAURANTS = 'https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.981448338218446&lng=76.86849609017372&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+export const GET_MENU = (resId) => `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=29.981448338218446&lng=76.86849609017372&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`

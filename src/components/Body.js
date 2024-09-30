@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
+import { GET_RESTAURANTS } from "../services/apiUrls";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -18,7 +19,7 @@ const Body = () => {
   },[]);
 
   const fetchData = async() => {
-    const data = await fetch('https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.981448338218446&lng=76.86849609017372&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
+    const data = await fetch(GET_RESTAURANTS)
     const response = await data.json();
     console.log('resp', response.data);
     setRestaurants(response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
@@ -27,7 +28,7 @@ const Body = () => {
   }
 
   const onTopRatedClick = () => {
-    const filteredRestaurantss = filteredRestaurants.filter(item => item.info.avgRating > 4)
+    const filteredRestaurantss = filteredRestaurants?.filter(item => item.info.avgRating > 4)
     setFilteredRestaurants(filteredRestaurantss)
   }
 
@@ -49,6 +50,11 @@ const Body = () => {
       fetchData();
     }
   }
+
+  // get online status from custom hook
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false) return <h1>Looks like your are offline!! Please check your internet connection.</h1>
 
   // conditional rendering
 
