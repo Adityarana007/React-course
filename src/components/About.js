@@ -1,13 +1,14 @@
 import React from "react";
 import User from "./User";
 import UserClass from "./UserClass";
-
+import UserContext from "../utils/UserContext";
 class About extends React.Component {
   constructor(props) {
     super(props);
     console.log("Parent constructor");
     this.state = {
-      count: 0
+      count: 0,
+
     }
   }
   componentDidMount() {
@@ -33,7 +34,18 @@ class About extends React.Component {
     return (
       <div>
         <h1>About</h1>
-        <h2>We are learning ReactJS</h2>
+        {/* <h2>We are learning ReactJS</h2> */}
+        <UserContext.Consumer>
+          {
+            ({loggedInUser}) => (
+              // console.log('data_about', data)
+              
+              <h1 className="text-xl font-bold">
+                {loggedInUser}
+              </h1>
+            )
+          }
+        </UserContext.Consumer>
         <button onClick={() => {
           this.setState({
             count: this.state.count + 1

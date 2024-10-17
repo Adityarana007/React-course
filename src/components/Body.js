@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { useContext, useEffect, useState } from "react";
+import RestaurantCard, { withNewlyOpened } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { GET_RESTAURANTS } from "../services/apiUrls";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
   const [showTopRated, setShowTopRated] = useState(false);
-
+  const {setUserName, loggedInUser} = useContext(UserContext);
+  const RestaurantCardNewlyOpened = withNewlyOpened(RestaurantCard);
 
   // Whenever a state variable updates, react triggers a reconciliation cycle (re-renders the component)
   console.log("Body comp re-renders");
@@ -22,15 +24,24 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(GET_RESTAURANTS);
     const response = await data.json();
-    console.log("resp", response.data);
+    console.log("resp__", response.data);
     setRestaurants(
-      response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredRestaurants(
-      response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+
+    // setRestaurants(
+    //   response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants
+    // );
+    // setFilteredRestaurants(
+    //   response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants
+    // );
   };
 
   const onTopRatedClick = () => {
@@ -38,16 +49,15 @@ const Body = () => {
       (item) => item.info.avgRating > 4
     );
     setFilteredRestaurants(filteredRestaurantss);
-    setShowTopRated(true)
+    setShowTopRated(true);
   };
 
   const onSearch = () => {
-    const filteredRestaurants = restaurants.filter((item) => {
+    const filteredRestaurants = restaurants?.filter((item) => {
       console.log("item.info.name", item.info.name.includes("a"));
       return (
-        item.info.name.toLowerCase().includes(searchInput?.toLowerCase()) ||
-        item.info.cuisines
-          .join(", ")
+        item.info.name.toLowerCase()?.includes(searchInput?.toLowerCase()) ||
+        item.info.cuisines?.join(", ")
           .toLowerCase()
           .includes(searchInput?.toLowerCase())
       );
@@ -68,8 +78,8 @@ const Body = () => {
 
   const onResetFilter = () => {
     setShowTopRated(false);
-    setFilteredRestaurants(restaurants)
-  }
+    setFilteredRestaurants(restaurants);
+  };
 
   // get online status from custom hook
   const onlineStatus = useOnlineStatus();
@@ -89,38 +99,69 @@ const Body = () => {
     <div className="body">
       <div className="flex flex-col md:flex-row justify-between px-8 items-center h-20 mt-4 md:mt-0">
         <div className="">
-          <div className="">
-          <button className={`text-black-600 font-serif ${showTopRated ? 'bg-orange-300 text-white' :'bg-stone-300'}  px-4 py-2 rounded-md hover:bg-orange-300 hover:scale-105 hover:text-white`} onClick={onTopRatedClick}>
-            Top Rated Restaurants
-          </button>
-          {
-            showTopRated && (
-              <button className="px-2 text-red-500" onClick={onResetFilter} >Reset Filter (x)</button>
-            )
-          }
+          <div className="flex items-center">
+            <button
+              className={`text-black-600 font-popins ${
+                showTopRated ? "bg-orange-300 text-white" : "bg-stone-300"
+              }  px-4 py-2 rounded-md hover:bg-orange-300 hover:scale-105 hover:text-white`}
+              onClick={onTopRatedClick}
+            >
+              Top Rated Restaurants
+            </button>
+            {showTopRated && (
+              <button className="px-2 text-red-500" onClick={onResetFilter}>
+                Reset Filter (x)
+              </button>
+            )}
+            <div className="mx-4 ">
+              <label>Username:</label>
+              <input className="border border-slate-800 rounded-md px-2 mx-2" value={loggedInUser} onChange={(e) => {
+                // console.log('eee',e)
+                setUserName(e?.target?.value)
+              }}/>
+            </div>
           </div>
         </div>
-        <div className="w-96 h-12 mt-4 md:mt-0" >
+        <div className="w-96 h-12 mt-4 md:mt-0">
           <input
             placeholder="Search for Restaurants"
             value={searchInput}
             onChange={onChange}
             type="text"
-            className="bg-white-300 w-72 h-12 focus:outline-none focus:border-gray-400 border pl-2 font-serif"
+            className="bg-white-300 w-72 h-12 focus:outline-none focus:border-gray-400 border pl-2 font-popins"
           />
-          <button className="bg-orange-300 h-12 w-24 rounded-r-md text-white font-serif hover:bg-orange-400 hover:cursor-pointer disabled:cursor-default disabled:bg-orange-300" onClick={onSearch} disabled={searchInput?.length == 0}>
+          <button
+            className="bg-orange-300 h-12 w-24 rounded-r-md text-white font-popins hover:bg-orange-400 hover:cursor-pointer disabled:cursor-default disabled:bg-orange-300"
+            onClick={onSearch}
+            disabled={searchInput?.length == 0}
+          >
             Search
           </button>
         </div>
       </div>
 
       <div className="flex flex-wrap mx-4 justify-center mt-10 md:mt-0">
-        {console.log('filteredRestaurants', filteredRestaurants)}
-        {filteredRestaurants?.map((item) => (
-          <Link to={`/restaurants/${item.info.id}`}>
-            <RestaurantCard key={item.info.id} resData={item.info} />
-          </Link>
-        ))}
+        {console.log("filteredRestaurants", filteredRestaurants)}
+        {
+          filteredRestaurants !== undefined ? (
+            filteredRestaurants?.map((item) => (
+              <Link to={`/restaurants/${item.info.id}`}>
+                {console.log("item_dd", item)}
+                {/* if the restaurant is newly opened add newly opended label to it */}
+                {item.info?.isNewlyOnboarded === true ? (
+                  <RestaurantCardNewlyOpened resData={item.info} />
+                ) : (
+                  <RestaurantCard key={item.info.id} resData={item.info} />
+                )}
+              </Link>
+            ))
+          ) : (
+            <div className="py-8">
+              <h1 className="font-extrabold text-orange-400 text-2xl">No Restaurants Available at the moment... 😞</h1>
+            </div>
+          )
+        }
+        
       </div>
     </div>
   );

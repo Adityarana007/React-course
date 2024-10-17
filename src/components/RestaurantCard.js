@@ -6,7 +6,7 @@ const RestaurantCard = (props) => {
     const { cloudinaryImageId, aggregatedDiscountInfoV3, name, avgRatingString,sla, costForTwo, cuisines } = props.resData;
     return (
       <div
-        className="w-72 px-5 py-5 mx-5 rounded-md mb-6 h-auto shadow-md bg-gray-100 hover:scale-105 hover:transform translate-x-10"
+        className="w-72 px-5 py-5 mx-5 rounded-md mb-6 h-auto shadow-md bg-gray-100 hover:scale-95 hover:transform translate-x-10"
         style={{
           // backgroundColor: "#f0f0f0",
           position: "relative",
@@ -29,17 +29,32 @@ const RestaurantCard = (props) => {
           }
          
   
-        <h3 className="font-bold font-serif py-2 text-xl">{name}</h3>
+        <h3 className="font-bold font-popins py-2 text-xl">{name}</h3>
         <div className="rating-container">
           <RatingComponentSvg/>
-          <span className="font-serif">
+          <span className="font-popins">
             {avgRatingString} | {sla?.slaString}
           </span>
         </div>
-        <h3 className="font-thin text-gray-800 font-serif py-2">{cuisines.join(", ")}</h3>
-        <p className="font-bold font-serif">{costForTwo}</p>
+        <h3 className="font-thin text-gray-800 font-popins py-2 truncate">{cuisines.join(", ")}</h3>
+        <p className="font-bold font-popins">{costForTwo}</p>
       </div>
     );
   };
 
+
+  // higher order component
+  // input - restaurantCard ===> RestaurantCardNew
+  export const withNewlyOpened = (RestaurantCard) => {
+    return (props) => {
+      return (
+        <div className=""> 
+          <label className="absolute bg-green-600 text-white z-30 ml-[63] rounded-sm px-2">Newly Opened</label>
+          <RestaurantCard {...props} />
+        </div>
+      )
+    }
+  }
+
   export default RestaurantCard;
+
