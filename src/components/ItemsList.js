@@ -1,7 +1,19 @@
 import React from 'react'
 import { IMG_BASE_URL } from '../utils/constants'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/cartSlice';
 
 const ItemsList = ({item}) => {
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (data) => {
+    // dispatch an action
+    console.log('added_data', data)
+    dispatch(addItem(data))
+
+  };
+
   return (
     <ul>
               {item?.itemCards?.map((item) => (
@@ -29,7 +41,7 @@ const ItemsList = ({item}) => {
                     {item?.card?.info?.imageId !== undefined ? (
                       <div className="relative justify-center items-end flex">
                         <div className="absolute bottom-[-12]">
-                          <button className="h-8 w-[85] border bg-white border-r-2 text-green-600 font-bold rounded-md shadow-lg">
+                          <button onClick={() => handleAddItem(item)} className="h-8 w-[85] border bg-white border-r-2 text-green-600 font-bold rounded-md shadow-lg">
                             ADD
                           </button>
                         </div>
@@ -42,7 +54,7 @@ const ItemsList = ({item}) => {
                     ) : (
                         <div className="relative justify-center items-end flex">
                             <div className="absolute  bottom-[-12]">
-                          <button className="h-8 w-[85] border bg-white border-r-2 text-green-600 font-bold rounded-md shadow-lg">
+                          <button onClick={() => handleAddItem(item)} className="h-8 w-[85] border bg-white border-r-2 text-green-600 font-bold rounded-md shadow-lg">
                             ADD
                           </button>
                         </div>

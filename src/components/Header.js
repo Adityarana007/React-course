@@ -3,12 +3,17 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnText, setBtnText] = useState("Login");
   const isOnline = useOnlineStatus();
   const {loggedInUser} = useContext(UserContext);
   // console.log('dataInHeader', data)
+
+  // selector to read data from store - give us access to store - subscribing to our store
+  const cartItems = useSelector((store) => store.cart.items)
+  console.log('cartItems', cartItems)
 
   // useEffect
   useEffect(() => {
@@ -49,7 +54,7 @@ const Header = () => {
             <Link to={"/grocery"}>Grocery</Link>
           </li>
           <li className="px-4 text-zinc-900 hover:text-orange-400 hover:cursor-pointer hover:scale-110 font-popins">
-            Cart
+           <Link to={"/cart"}> Cart ({cartItems?.length}) </Link>
           </li>
           <button
             onClick={onLoginClick}

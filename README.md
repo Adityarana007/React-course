@@ -57,3 +57,11 @@
     - <HTML (new API Data)>
     -  ComponentDidUpdate
     
+
+# Redux Toolkit
+- Install Libraries -- @reduxjs/toolkit, react-redux
+- Build our store
+- Connect out store to our app (make bridge)
+- Create Slice (cart Slice)
+- Dispatch action
+- Selector (Read Data)
