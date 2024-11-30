@@ -144,8 +144,8 @@ const Body = () => {
       <div className="flex flex-wrap mx-4 justify-center mt-10 md:mt-0">
         {
           filteredRestaurants !== undefined ? (
-            filteredRestaurants?.map((item) => (
-              <Link to={`/restaurants/${item.info.id}`}>
+            filteredRestaurants?.map((item, index) => (
+              <Link key={index} to={`/restaurants/${item.info.id}`}>
                 {/* {console.log("item_dd", item)} */}
                 {/* if the restaurant is newly opened add newly opended label to it */}
                 {item.info?.isNewlyOnboarded === true ? (

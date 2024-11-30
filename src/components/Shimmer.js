@@ -8,8 +8,8 @@ const Shimmer = () => {
       </div>
 
       <div className="flex justify-center flex-wrap ">
-        {Array.from({ length: 10 }).map((item) => (
-          <div className="h-56 w-72  bg-gray-100 mx-4 my-4">
+        {Array.from({ length: 10 }).map((item, index) => (
+          <div key={index} className="h-56 w-72  bg-gray-100 mx-4 my-4">
             <div className="img-container">
               <div className="card-img"></div>
             </div>

@@ -6,13 +6,10 @@ import { addItem, clearCart } from "../utils/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
-  console.log("cartItems_cart", cartItems);
-  // const cartInfo = cartItems?.card
   const dispatch = useDispatch();
 
   const handleAddItem = (data) => {
     // dispatch an action
-    console.log("added_data", data);
     dispatch(addItem(data));
   };
   const handleClearCart = (data) => {
@@ -38,11 +35,10 @@ const Cart = () => {
         <div className="bg-white p-4 rounded-lg shadow-lg w-full max-w-lg">
           {cartItems?.length > 0 ? (
             cartItems.map((item, index) => {
-              console.log("item_cart", item.card.info);
               return (
                 <div
                   key={index}
-                  data-testid="cartItemList"
+                  data-testid="foodItems"
                   className="p-2 border-b border-gray-300 flex justify-between items-center pb-8 "
                 >
                     <div className="flex justify-center items-center">
@@ -92,7 +88,9 @@ const Cart = () => {
               );
             })
           ) : (
-            <p data-testid="cartItemList" className="text-center text-gray-500">No items in the cart</p>
+            <>
+            <p data-testid="emptyCart" className="text-center text-gray-500">No items in the cart</p>
+            </>
           )}
         </div>
       </div>
