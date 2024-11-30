@@ -17,7 +17,7 @@ const ItemsList = ({item}) => {
   return (
     <ul>
               {item?.itemCards?.map((item) => (
-                <div className="mt-4 flex border-b-2 pb-8 justify-between">
+                <div data-testid="foodItems" className="mt-4 flex border-b-2 pb-8 justify-between">
                   <div className="w-[600px]">
                     <li
                       className="text-lg font-medium font-popins "

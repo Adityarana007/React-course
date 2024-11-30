@@ -1,0 +1,87 @@
+{
+    "id": "418292",
+    "name": "Domino's Pizza",
+    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/10/24/7c74cb5b-bacb-4aaf-bdf1-2483fa3fe9cc_418292.JPG",
+    "locality": "Pipli Road",
+    "areaName": "Kurukshetra",
+    "costForTwo": "₹400 for two",
+    "cuisines": [
+        "Pizzas",
+        "Italian",
+        "Pastas",
+        "Desserts"
+    ],
+    "avgRating": 4.4,
+    "parentId": "2456",
+    "avgRatingString": "4.4",
+    "totalRatingsString": "306",
+    "sla": {
+        "deliveryTime": 25,
+        "lastMileTravel": 3,
+        "serviceability": "SERVICEABLE",
+        "slaString": "20-25 mins",
+        "lastMileTravelString": "3.0 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2024-11-19 01:55:00",
+        "opened": true
+    },
+    "badges": {
+        "textExtendedBadges": [
+            {
+                "iconId": "Ratnesh_Badges/free%20del%20icon.png",
+                "shortDescription": "Free Delivery",
+                "fontColor": "#7E808C"
+            }
+        ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {
+                "badgeObject": [
+                    {
+                        "attributes": {
+                            "description": "",
+                            "fontColor": "#7E808C",
+                            "iconId": "Ratnesh_Badges/free%20del%20icon.png",
+                            "shortDescription": "Free Delivery"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "aggregatedDiscountInfoV3": {
+        "header": "₹125 OFF",
+        "subHeader": "ABOVE ₹1199",
+        "discountTag": "FLAT DEAL"
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+        "aggregatedRating": {
+            "rating": "--"
+        }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+}

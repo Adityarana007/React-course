@@ -15,7 +15,7 @@ const Body = () => {
   const RestaurantCardNewlyOpened = withNewlyOpened(RestaurantCard);
 
   // Whenever a state variable updates, react triggers a reconciliation cycle (re-renders the component)
-  console.log("Body comp re-renders");
+  // console.log("Body comp re-renders");
 
   useEffect(() => {
     fetchData();
@@ -24,7 +24,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(GET_RESTAURANTS);
     const response = await data.json();
-    console.log("resp__", response.data);
+    // console.log("resp__", response.data);
     setRestaurants(
       response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -54,7 +54,7 @@ const Body = () => {
 
   const onSearch = () => {
     const filteredRestaurants = restaurants?.filter((item) => {
-      console.log("item.info.name", item.info.name.includes("a"));
+      // console.log("item.info.name", item.info.name.includes("a"));
       return (
         item.info.name.toLowerCase()?.includes(searchInput?.toLowerCase()) ||
         item.info.cuisines?.join(", ")
@@ -62,7 +62,7 @@ const Body = () => {
           .includes(searchInput?.toLowerCase())
       );
     });
-    console.log("filteredRestaurants", filteredRestaurants);
+    // console.log("filteredRestaurants", filteredRestaurants);
     // setRestaurants(filteredRestaurants);
     setFilteredRestaurants(filteredRestaurants);
   };
@@ -124,6 +124,7 @@ const Body = () => {
         </div>
         <div className="w-96 h-12 mt-4 md:mt-0">
           <input
+            data-testid="searchInput"
             placeholder="Search for Restaurants"
             value={searchInput}
             onChange={onChange}
@@ -141,12 +142,11 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap mx-4 justify-center mt-10 md:mt-0">
-        {console.log("filteredRestaurants", filteredRestaurants)}
         {
           filteredRestaurants !== undefined ? (
             filteredRestaurants?.map((item) => (
               <Link to={`/restaurants/${item.info.id}`}>
-                {console.log("item_dd", item)}
+                {/* {console.log("item_dd", item)} */}
                 {/* if the restaurant is newly opened add newly opended label to it */}
                 {item.info?.isNewlyOnboarded === true ? (
                   <RestaurantCardNewlyOpened resData={item.info} />

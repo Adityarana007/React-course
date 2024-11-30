@@ -42,6 +42,7 @@ const Cart = () => {
               return (
                 <div
                   key={index}
+                  data-testid="cartItemList"
                   className="p-2 border-b border-gray-300 flex justify-between items-center pb-8 "
                 >
                     <div className="flex justify-center items-center">
@@ -91,7 +92,7 @@ const Cart = () => {
               );
             })
           ) : (
-            <p className="text-center text-gray-500">No items in the cart</p>
+            <p data-testid="cartItemList" className="text-center text-gray-500">No items in the cart</p>
           )}
         </div>
       </div>

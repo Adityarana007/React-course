@@ -13,7 +13,6 @@ const Header = () => {
 
   // selector to read data from store - give us access to store - subscribing to our store
   const cartItems = useSelector((store) => store.cart.items)
-  console.log('cartItems', cartItems)
 
   // useEffect
   useEffect(() => {
@@ -54,7 +53,7 @@ const Header = () => {
             <Link to={"/grocery"}>Grocery</Link>
           </li>
           <li className="px-4 text-zinc-900 hover:text-orange-400 hover:cursor-pointer hover:scale-110 font-popins">
-           <Link to={"/cart"}> Cart ({cartItems?.length}) </Link>
+           <Link to={"/cart"}>Cart ({cartItems?.length})</Link>
           </li>
           <button
             onClick={onLoginClick}

@@ -2,10 +2,11 @@ import RatingComponentSvg from "../common/RatingComponentSvg";
 import { IMG_BASE_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
-  console.log('props_restrauntcard', props)
+  // console.log('props_restrauntcard', props.resData)
     const { cloudinaryImageId, aggregatedDiscountInfoV3, name, avgRatingString,sla, costForTwo, cuisines } = props.resData;
     return (
       <div
+      data-testid="resCard"
         className="w-72 px-5 py-5 mx-5 rounded-md mb-6 h-auto shadow-md bg-gray-100 hover:scale-95 hover:transform translate-x-10"
         style={{
           // backgroundColor: "#f0f0f0",
